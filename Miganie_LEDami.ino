@@ -20,7 +20,7 @@ int greenS = 0;
 int blueS = 0;
 
 void setup() {
-  Serial.begin(9600);   // Prędkość komunikacji między ESP a portem szeregowym
+  Serial.begin(115200);   // Prędkość komunikacji między ESP a portem szeregowym
   analogWriteRange(resolution);   // Zmiana zakresu wyjścia analogowego PWM z 1024 na 256
   analogWrite(redPin, 0);   // Początkowe wyłączenie LED
   analogWrite(greenPin, 0);
