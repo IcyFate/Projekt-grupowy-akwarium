@@ -1,0 +1,57 @@
+esphome:
+  name: akwarium
+  friendly_name: Akwarium
+
+esp8266:
+  board: d1_mini
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "5VV59KV4ckwR4yLXhkMDggSQhXj3RKj8Wo+BGbi6IlE="
+
+ota:
+  password: "9265788daa1591b4bbdbd9beeec07163"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Akwarium Fallback Hotspot"
+    password: "4LxzLb0D1ULw"
+
+captive_portal:
+
+output:
+  - platform: esp8266_pwm
+    pin: D5
+    frequency: 2000 Hz
+    id: pwm_red
+
+  - platform: esp8266_pwm
+    pin: D6
+    frequency: 2000 Hz
+    id: pwm_blue
+
+  - platform: esp8266_pwm
+    pin: D7
+    frequency: 2000 Hz
+    id: pwm_green
+
+light:
+  - platform: monochromatic
+    output: pwm_red
+    name: "Dimmer_red"
+
+  - platform: monochromatic
+    output: pwm_blue
+    name: "Dimmer_blue"
+
+  - platform: monochromatic
+    output: pwm_green
+    name: "Dimmer_green"
