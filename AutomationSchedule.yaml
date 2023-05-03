@@ -1,0 +1,22 @@
+alias: akwarium1
+description: ""
+trigger:
+  - platform: time
+    at: "00:00:00"
+condition: []
+action:
+  - type: turn_on
+    device_id: 2e24eac95eef255ad7740157d6573cd0
+    entity_id: light.akwarium_dimmer_red
+    domain: light
+    brightness_pct: 50
+    flash: short
+  - type: turn_off
+    device_id: 2e24eac95eef255ad7740157d6573cd0
+    entity_id: light.akwarium_dimmer_blue
+    domain: light
+  - type: turn_off
+    device_id: 2e24eac95eef255ad7740157d6573cd0
+    entity_id: light.akwarium_dimmer_green
+    domain: light
+mode: single
