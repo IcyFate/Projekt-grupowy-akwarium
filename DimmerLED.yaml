@@ -34,12 +34,12 @@ output:
     id: pwm_red
 
   - platform: esp8266_pwm
-    pin: D6
+    pin: D7
     frequency: 2000 Hz
     id: pwm_blue
 
   - platform: esp8266_pwm
-    pin: D7
+    pin: D6
     frequency: 2000 Hz
     id: pwm_green
 
@@ -47,11 +47,20 @@ light:
   - platform: monochromatic
     output: pwm_red
     name: "Dimmer_red"
+    default_transition_length: 30s
 
   - platform: monochromatic
     output: pwm_blue
     name: "Dimmer_blue"
+    default_transition_length: 30s
 
   - platform: monochromatic
     output: pwm_green
     name: "Dimmer_green"
+    default_transition_length: 30s
+    
+sensor:
+  - platform: adc
+    pin: A0
+    name: "Brightness"
+    update_interval: 1ms
